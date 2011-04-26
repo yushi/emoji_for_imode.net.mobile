@@ -1,0 +1,14 @@
+{
+  "name": "Emoji for imode.net mobile",
+  "version": "1.0",
+  "description": "emoji editor for imode.net mobile UI",
+  "content_scripts": [
+    {
+      "matches":["https://imode.net/*"],
+      "js": ["emojieditor.js"]
+    }
+  ],
+  "permissions": [
+    "tabs", "https://imode.net/*"
+  ]
+}
