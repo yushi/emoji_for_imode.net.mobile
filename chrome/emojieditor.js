@@ -85,9 +85,7 @@ function appendEditor(dst){
     iframe.contentDocument.designMode = "on";
 
     var emojiPalette = document.createElement('div');
-    console.log(emojichar2gifnum);
     for(var emoji in emojichar2gifnum){
-        console.log(emoji);
         var img = createEmojiButton(emoji, iframe);
         if(img){
             emojiPalette.appendChild(img);
