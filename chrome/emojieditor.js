@@ -108,8 +108,11 @@ function showEmojiEditor(textarea){
             switch(nodes[i].nodeName){
             case 'IMG':
                 text += getCharCodeByImg(nodes[i]);
+                break;
             case '#text':
                 text += nodes[i].data;
+                break;
+            default:
             }
         }
         getOriginalTextArea().value = text;
