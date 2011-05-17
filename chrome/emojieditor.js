@@ -227,11 +227,9 @@
          var originalBodyEditor = getOriginalBodyEditor();
          
          if(!originalSubjectEditor){
-             console.log('mail subject input field not found');
              return;
          }
          if(!originalBodyEditor){
-             console.log('mail body textarea not found');
              return;
          }
          
