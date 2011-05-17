@@ -153,9 +153,30 @@
          };
      };
 
+     function _flattenIFrameBodyChlid(childs, ret){
+         for(var i in childs){
+             if(childs[i].nodeName == 'DIV'){
+                 var nl = new Object();
+                 nl.nodeName = '#text';
+                 nl.data = "\n";
+                 ret.push(nl);
+                 _flattenIFrameBodyChlid(childs[i].childNodes, ret);
+             }else{
+                 ret.push(childs[i]);
+             }
+         }
+         return ret;
+     }
+
+     function flattenIFrameBodyChlid(iframe){
+         var ret = [];
+         var nodes = iframe.contentDocument.body.childNodes;
+         return _flattenIFrameBodyChlid(nodes, ret);
+     }
+
      function exportMessage(from, to){
          var editor = from;
-         var nodes = editor.contentDocument.body.childNodes;
+         var nodes = flattenIFrameBodyChlid(editor);
          var text = "";
          for(var i in nodes){
              switch(nodes[i].nodeName){
