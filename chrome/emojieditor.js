@@ -63,6 +63,7 @@ function createEmojiButton(emoji, dst){
     img.charCode = emoji;
     img.onclick = function(){
         dst.contentDocument.execCommand('insertimage', false, img.src);
+        dst.contentDocument.childNodes[0].childNodes[1].focus();
     };
     return img;
 }
